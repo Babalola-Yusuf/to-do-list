@@ -36,24 +36,24 @@ function App() {
 
 
   return (
-    <div className=' bg-base p-6'>
-      <h1>To Do List</h1>  
+    <div className=' bg-base p-6 max-w-screen-sm'>
+      <h1 className='text-3xl'>To Do List</h1>  
       <div className='flex gap-4 mt-4 mb-2'>
-        <input type="text" value={newTasks} onChange={handleInputChange} placeholder='Add a new task'/>    
-        <button onClick={handleAddTask}>Add</button>
+        <input type="text" value={newTasks} onChange={handleInputChange} placeholder='Add a new task' className='text-vividPurple p-2'/>    
+        <button onClick={handleAddTask} className='bg-vividCyan text-white p-2 focus:bg-vividPurple  rounded-md'>Add</button>
       </div>
 
-      <ol> {tasks.map((task, index) => 
-      <li key={index} className='bg-main p-2 mb-2 flex gap-2 justify-between items-center'> 
-        <span className=''>{task}</span>
-        <div className='flex gap-2'>
-        <button className='bg-vividPurple text-white'
+      <ol className='flex flex-col'> {tasks.map((task, index) => 
+      <li key={index} className='bg-main p-2 mb-2 mt-4 flex gap-2 justify-between items-center'> 
+        <span className=' mr-4 text-xl'>{task}</span>
+        <div className='flex gap-4 '>
+        <button className='bg-vividCyan text-red-600 font-bold p-2 text-sm rounded-md border-vividPurple border-2'
           onClick={() => handleDeleteTask(index)}>delete
         </button>
-        <button className='bg-vividCyan'
+        <button className='bg-vividPurple p-2 text-sm rounded-md'
           onClick={() => moveTaskUp(index)}>👆
         </button>
-        <button className='bg-vividCyan'
+        <button className='bg-vividPurple p-2 text-sm rounded-md'
           onClick={() => moveTaskDown(index)}>👇
         </button>
 
