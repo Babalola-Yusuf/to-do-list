@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
+function App(props) {
   const [tasks, setTasks] = useState([]);
   const [newTasks, setNewTasks] = useState("");
   const handleInputChange = (event) => {
@@ -37,7 +35,7 @@ function App() {
 
   return (
     <div className=' bg-base p-6 max-w-screen-sm'>
-      <h1 className='text-3xl'>To Do List</h1>  
+      <h1 className='text-3xl'>To Do List by {props.user}</h1>  
       <div className='flex gap-4 mt-4 mb-2'>
         <input type="text" value={newTasks} onChange={handleInputChange} placeholder='Add a new task' className='text-vividPurple p-2' id='task'/>    
         <button onClick={handleAddTask} className='bg-vividCyan text-white p-2 focus:bg-vividPurple  rounded-md'>Add</button>
